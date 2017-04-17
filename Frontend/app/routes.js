@@ -22,12 +22,17 @@ export default function createRoutes(store) {
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          import('containers/HomePage'),
+          System.import('containers/HomePage/reducer'),
+          System.import('containers/HomePage/sagas'),
+          System.import('containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('signIn', reducer.default);
+          injectSagas(sagas.default);
+
           renderRoute(component);
         });
 
@@ -37,7 +42,7 @@ export default function createRoutes(store) {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
-        import('containers/NotFoundPage')
+        System.import('containers/NotFoundPage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },
