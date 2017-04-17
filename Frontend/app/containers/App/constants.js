@@ -9,4 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
+export const INITIALIZE = 'app/App/INITIALIZE';
+export const STORE_TOKEN = 'app/App/STORE_TOKEN';
+export const DELETE_TOKEN = 'app/App/DELETE_TOKEN';
 export const DEFAULT_LOCALE = 'en';
