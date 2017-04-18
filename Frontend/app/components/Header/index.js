@@ -23,23 +23,6 @@ function Header(props) {
       <ToolbarGroup firstChild={props.firstChild}>
       </ToolbarGroup>
       <ToolbarGroup lastChild={props.lastChild}>
-        <div>
-          <FlatButton
-            id="helpButton"
-            label={<FormattedMessage {...messages.header.help} />}
-            href="#help"
-          />
-          <FlatButton
-            id="registerButton"
-            label={<FormattedMessage {...messages.header.signUp} />}
-            href="sign-up"
-          />
-          <FlatButton
-            id="loginButton"
-            label={<FormattedMessage {...messages.header.signIn} />}
-            href="/"
-          />
-        </div>
       </ToolbarGroup>
     </Toolbar>
   );
