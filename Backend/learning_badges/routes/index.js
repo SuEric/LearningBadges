@@ -1,6 +1,7 @@
 import express from 'express';
 
 // Import the module routes
+import AuthRoutes from './auth'
 import UserRoutes from './user';
 
 const router = express.Router();
@@ -9,6 +10,7 @@ const router = express.Router();
 router.get('/', (req, res) => res.end('Welcome to LearningBadges.'));
 
 /* TODO add below the api routes */
+router.use('/auth', AuthRoutes);
 router.use('/users', UserRoutes);
 
 // Error handling
