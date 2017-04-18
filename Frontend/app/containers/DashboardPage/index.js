@@ -13,6 +13,8 @@ import AppBar from 'material-ui/AppBar';
 
 import * as dashboardActions from './actions';
 
+import { UserIsAuthenticated } from '../../utils/auth';
+
 class DashboardPage extends React.Component { // eslint-disable-line
 
   constructor(props, context) {
@@ -59,4 +61,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
+export default UserIsAuthenticated(connect(mapStateToProps, mapDispatchToProps)(DashboardPage));
