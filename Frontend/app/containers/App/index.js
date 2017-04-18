@@ -12,18 +12,52 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import {
+  selectToken,
+} from './selectors';
 
-  static propTypes = {
-    children: React.PropTypes.node,
-  };
+import * as appActions from './actions';
+
+const Container = styled.div`
+  font-family: "Roboto", sans-serif;
+  padding: 0px;
+  margin: 0px 0px 0px 0px;
+`;
+
+class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+  componentWillMount() {
+    this.props.actions.initialize();
+  }
 
   render() {
     return (
-      <div>
+      <Container>
         {React.Children.toArray(this.props.children)}
-      </div>
+      </Container>
     );
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.node,
+  actions: React.PropTypes.any,
+};
+
+const mapStateToProps = createStructuredSelector({
+  token: selectToken(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(appActions, dispatch),
+    dispatch,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
