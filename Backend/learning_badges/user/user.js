@@ -10,8 +10,8 @@ import bcrypt from 'bcryptjs';
 
 /**
  * Type:
- * 1: journalist
- * 2: source
+ * 1: admin
+ * 2: user
  */
 
 /**
