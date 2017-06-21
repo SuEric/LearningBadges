@@ -2,7 +2,7 @@
 
 Description
 
-Questions and comments to: [eric.garcia@nearshoretechnology.com]
+Questions and comments to: [development@procodific.com]
 
 How to Install?
 --------------
